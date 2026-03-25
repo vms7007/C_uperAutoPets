@@ -1,6 +1,8 @@
 #ifndef PETS_H
 #define PETS_H
 
+#include "types.h"
+
 #define MAX_ABILITIES 3
 #define MAX_TEAM_SIZE 5
 
@@ -657,102 +659,15 @@ typedef enum {
     SUMMON_COUNT
 } SummonID;
 
-typedef enum {
-    NO_TRIGGER,
-    ON_BUY,
-    ON_SELL,
-    ON_LEVEL_UP,
-    START_OF_TURN,
-    END_OF_TURN,
-    FRIEND_SOLD,
-    FRIEND_BOUGHT,
-    FRIEND_SUMMONED,
-    FOOD_BOUGHT,
-    FOOD_EATEN,
-    SHOP_ROLLED,
-    START_OF_BATTLE,
-    BEFORE_ATTACK,
-    AFTER_ATTACK,
-    ON_FAINT,
-    ON_HURT,
-    KNOCKOUT,
-    FRIEND_AHEAD_ATTACKS,
-    FRIEND_AHEAD_FAINTS,
-    FRIEND_FAINTS,
-    TRIGGER_COUNT,
-} Trigger;
-
-typedef enum {
-    NO_EFFECT,
-    GIVE_BUFF,
-    DEAL_DAMAGE,
-    DEAL_DAMAGE_WITH_ATK,
-    SUMMON_PET,
-    SUMMON_ENEMY,
-    GIVE_GOLD,
-    GIVE_PERK,
-    COPY_STATS,
-    COPY_ABILITY,
-    REMOVE_HEALTH_PCT,
-    SWALLOW,
-    ADD_SHOP_FOOD,
-    GIVE_SHOP_BUFF,
-    GAIN_SELL_VALUE,
-    PLAY_SPELL,
-    EFFECT_COUNT,
-} Effect;
-
-typedef enum {
-    NO_TARGET,
-    SELF,
-    FRIEND_BEHIND,
-    FRIEND_AHEAD,
-    ADJACENT,
-    ALL_FRIENDS,
-    OTHER_FRIENDS,
-    RANDOM_FRIEND,
-    FRIEND_FRONT,
-    TRIGGER_SOURCE,
-    TRIGGER_TARGET,
-    ENEMY_FIRST,
-    ENEMY_LAST,
-    RANDOM_ENEMY,
-    ALL_ENEMIES,
-    ALL,
-    HIGHEST_HP_FRIEND,
-    HIGHEST_HP_ENEMY,
-    LOWEST_HP_ENEMY,
-    SHOP_PETS,
-    SHOP_FOOD,
-    TARGET_COUNT,
-} Target;
-
-typedef enum {
-    NO_PERK, MELON, GARLIC, HONEY,
-    STEAK, MUSHROOM, COCONUT, POISON,
-    PERK_COUNT
-} Perk;
-
-typedef enum {
-    PACK_TURTLE    = 1,
-    PACK_STANDARD  = 2,
-    PACK_PUPPY     = 4,
-    PACK_STAR      = 8,
-    PACK_GOLDEN    = 16,
-    PACK_DANGER    = 32,
-    PACK_UNICORN   = 64,
-    PACK_CUSTOM    = 128,
-} Pack;
-
 typedef struct {
     Trigger   trigger;
     Effect    effect;
     int       amount1[3];   /* For abilities that scale per level: [lv1, lv2, lv3] */
-    int       amount2[3];   
+    int       amount2[3];
     int       target_count;
     SummonID  summon_id;
     Target    target;
-    int       perk;         /* TODO: replace with Perk enum when foods are added */
+    int       perk;
     void (*custom)(Pet *self, GameState *state, int level);
 } Ability;
 

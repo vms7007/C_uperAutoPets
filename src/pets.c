@@ -8,12 +8,21 @@ const Pet pet_data[PET_COUNT] = {
     [ANT] = {
         .id = ANT, .name = "Ant", .tier = 1,
         .base_attack = 2, .base_health = 2, .cost = 3, .pack = PACK_STANDARD | PACK_TURTLE, .is_token = 0,
-        .ability = { .trigger = ON_FAINT, .effect = GIVE_BUFF, .target = OTHER_FRIENDS },
+        .ability = { 
+            .trigger = ON_FAINT, .effect = GIVE_BUFF, .target = OTHER_FRIENDS,
+            .amount1 = {1,2,3},
+            .amount2 = {1,2,3},
+            .target_count = 1,
+         },
     },
     [BEAVER] = {
         .id = BEAVER, .name = "Beaver", .tier = 1,
         .base_attack = 3, .base_health = 2, .cost = 3, .pack = PACK_STANDARD | PACK_TURTLE, .is_token = 0,
-        .ability = { .trigger = ON_SELL, .effect = GIVE_BUFF, .target = OTHER_FRIENDS },
+        .ability = { 
+            .trigger = ON_SELL, .effect = GIVE_BUFF, .target = OTHER_FRIENDS 
+            .amount1 = {1,2,3},
+            .target_count = 2
+        },
     },
     [BUMBLE_BEE] = {
         .id = BUMBLE_BEE, .name = "Bumble Bee", .tier = 1,
@@ -33,18 +42,28 @@ const Pet pet_data[PET_COUNT] = {
     [CRICKET] = {
         .id = CRICKET, .name = "Cricket", .tier = 1,
         .base_attack = 1, .base_health = 3, .cost = 3, .pack = PACK_STANDARD | PACK_TURTLE, .is_token = 0,
-        .ability = { .trigger = ON_FAINT, .effect = SUMMON_PET, .target = SELF },
+        .ability = { 
+            .trigger = ON_FAINT, .effect = SUMMON_PET, .target = SELF,
+            .summonID = ZOMBIE_CRICKET,
+        },
     },
     [DUCK] = {
         .id = DUCK, .name = "Duck", .tier = 1,
         .base_attack = 2, .base_health = 2, .cost = 3, .pack = PACK_STANDARD | PACK_TURTLE, .is_token = 0,
-        .ability = { .trigger = ON_SELL, .effect = GIVE_SHOP_BUFF, .target = SHOP_PETS },
+        .ability = { 
+            .trigger = ON_SELL, .effect = GIVE_SHOP_BUFF, .target = SHOP_PETS,
+            .amount2 = {1,2,3},
+        },
     },
     [FISH] = 
     {
         .id = FISH, .name = "Fish", .tier = 1,
         .base_attack = 2, .base_health = 3, .cost = 3, .pack = PACK_TURTLE, .is_token = 0,
-        .ability = { .trigger = ON_LEVEL_UP, .effect = GIVE_BUFF, .target = OTHER_FRIENDS },
+        .ability = { 
+            .trigger = ON_LEVEL_UP, .effect = GIVE_BUFF, .target = OTHER_FRIENDS 
+            .amount1 = {1,2,3},
+            .amount2 = {1,2,3},
+        },
     },
     [HORSE] = {
         .id = HORSE, .name = "Horse", .tier = 1,

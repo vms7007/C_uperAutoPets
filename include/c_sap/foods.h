@@ -1,1 +1,4 @@
-foods.h
+typedef enum {
+
+} foodID;
+
