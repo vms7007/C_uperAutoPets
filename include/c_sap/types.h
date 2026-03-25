@@ -1,0 +1,104 @@
+#ifndef TYPES_H
+#define TYPES_H
+
+/*
+===============
+    Game Types
+===============
+shared enums used by both pets and foods
+*/
+
+typedef enum {
+    NO_TRIGGER,
+    ON_BUY,
+    BUY_FOOD,
+    ON_SELL,
+    ON_LEVEL_UP,
+    START_OF_TURN,
+    END_OF_TURN,
+    FRIEND_SOLD,
+    FRIEND_BOUGHT,
+    FRIEND_SUMMONED,
+    FOOD_BOUGHT,
+    FOOD_EATEN,
+    SHOP_ROLLED,
+    START_OF_BATTLE,
+    BEFORE_ATTACK,
+    AFTER_ATTACK,
+    ON_FAINT,
+    ON_HURT,
+    KNOCKOUT,
+    FRIEND_AHEAD_ATTACKS,
+    FRIEND_AHEAD_FAINTS,
+    FRIEND_FAINTS,
+    TRIGGER_COUNT,
+} Trigger;
+
+typedef enum {
+    NO_EFFECT,
+    GIVE_BUFF,
+    DEAL_DAMAGE,
+    DEAL_DAMAGE_WITH_ATK,
+    SUMMON_PET,
+    SUMMON_ENEMY,
+    GIVE_GOLD,
+    GIVE_PERK,
+    COPY_STATS,
+    COPY_ABILITY,
+    REMOVE_HEALTH_PCT,
+    SWALLOW,
+    ADD_SHOP_FOOD,
+    GIVE_SHOP_BUFF,
+    GAIN_SELL_VALUE,
+    PLAY_SPELL,
+    FAINT_PET,
+    GAIN_EXPERIENCE,
+    GAIN_MANA,
+    REMOVE_PERK,
+    MULTI_EFFECT,
+    EFFECT_COUNT,
+} Effect;
+
+typedef enum {
+    NO_TARGET,
+    SELF,
+    FRIEND_BEHIND,
+    FRIEND_AHEAD,
+    ADJACENT,
+    ALL_FRIENDS,
+    OTHER_FRIENDS,
+    RANDOM_FRIEND,
+    FRIEND_FRONT,
+    TRIGGER_SOURCE,
+    TRIGGER_TARGET,
+    ENEMY_FIRST,
+    ENEMY_LAST,
+    RANDOM_ENEMY,
+    ALL_ENEMIES,
+    ALL,
+    HIGHEST_HP_FRIEND,
+    HIGHEST_HP_ENEMY,
+    LOWEST_HP_ENEMY,
+    SHOP_PETS,
+    SHOP_FOOD,
+    TARGET_COUNT,
+} Target;
+
+typedef enum {
+    NO_PERK, MELON, GARLIC, HONEY,
+    STEAK, MUSHROOM, COCONUT, POISON,
+    PERK_COUNT
+} Perk;
+
+typedef enum {
+    PACK_TURTLE    = 1,
+    PACK_STANDARD  = 2,
+    PACK_PUPPY     = 4,
+    PACK_STAR      = 8,
+    PACK_GOLDEN    = 16,
+    PACK_DANGER    = 32,
+    PACK_UNICORN   = 64,
+    PACK_CUSTOM    = 128,
+} Pack;
+
+#endif /* TYPES_H */
