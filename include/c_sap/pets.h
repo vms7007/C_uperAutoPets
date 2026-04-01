@@ -664,23 +664,21 @@ typedef struct {
     Effect    effect;
     int       amount1[3];   /* For abilities that scale per level: [lv1, lv2, lv3] */
     int       amount2[3];
-    int       target_count;
+    int       target_count[3];
     SummonID  summon_id;
     Target    target;
-    int       perk;
+    Perk      perk;
     void (*custom)(Pet *self, GameState *state, int level);
 } Ability;
 
 struct Pet {
-    PetID       id;
     const char *name;
     int         tier;
     int         base_attack;
     int         base_health;
     int         cost;
     Pack        pack;
-    int         is_token;     /* 1 = summoned pet (bee, zombie cricket, etc.) */
-    Ability     ability;
+    Ability     abilities[MAX_ABILITIES];
 };
 
 typedef struct {
